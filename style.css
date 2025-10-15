@@ -1,0 +1,124 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f7ff; 
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #004b87; 
+    color: white;
+    padding: 25px;
+    border-bottom: 7px solid #ffcd00; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#chrono {
+    font-size: 1.8em;
+    margin-top: 15px;
+    color: #ffcd00;
+    font-weight: bold;
+}
+
+/* 1. CONTENEUR PRINCIPAL DU JEU */
+#jeu-container {
+    max-width: 1200px; /* On élargit pour un meilleur visuel */
+    height: 70vh; /* Hauteur relative pour voir le fond */
+    margin: 30px auto;
+    padding: 0;
+    background-color: transparent; /* Le fond sera géré par .salle-visuelle */
+    box-shadow: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* 2. GESTION DE L'IMAGE DE FOND (LA SALLE) */
+#visuel-salle {
+    width: 100%;
+    height: 100%;
+    /* Image par défaut : un couloir ou une pièce classique d'Oxford */
+    background-image: url('images/couloir_oxford.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+}
+
+/* 3. STYLISATION DES FENÊTRES D'ÉNIGMES */
+.salle {
+    /* Rendre les boîtes d'énigmes semi-transparentes */
+    background-color: rgba(255, 255, 255, 0.9); /* Blanc semi-transparent */
+    border: 3px solid #004b87;
+    padding: 25px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 450px; /* Taille de la boîte de texte */
+    position: absolute; /* Permet le positionnement libre sur le fond */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre la boîte */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cachee {
+    display: none; 
+}
+
+/* ... (Les styles pour h2, input, button, feedback restent les mêmes) ... */
+
+.salle h2 {
+    color: #004b87;
+    border-bottom: 2px solid #ffcd00;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin: 15px 0;
+    width: 90%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ffcd00;
+    color: #333;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+}
+
+.feedback.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.feedback.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#fin {
+    /* Style spécial pour l'écran de fin */
+    background-color: rgba(204, 238, 255, 0.95);
+    border-color: #004b87;
+    color: #004b87;
+    text-align: center;
+    font-size: 1.2em;
+}
