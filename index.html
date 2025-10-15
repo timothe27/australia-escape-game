@@ -10,51 +10,52 @@
 
     <header>
         <h1>Mystère Austral : Évasion d'Oxford 🇦🇺🎓</h1>
-        <p>Vous êtes enfermés dans un bâtiment historique d'Oxford. Pour vous échapper, vous devez déverrouiller une série de salles thématiques sur l'Australie en résolvant des énigmes. Bonne chance, le temps presse!</p>
+        <p>Vous êtes enfermés dans un bâtiment historique d'Oxford. Pour vous échapper, vous devez déverrouiller une série de salles thématiques sur l'Australie en résolvant des énigmes.</p>
         <div id="chrono">Temps restant : 60:00</div>
     </header>
 
     <main id="jeu-container">
-        
-        <section id="salle-opera" class="salle active">
-            <h2>Salle 1 : L'Opéra de Sydney</h2>
-            <div class="contexte">
-                <p>La porte est verrouillée par un code à 4 chiffres. Le code est lié aux fameuses "voiles" de l'Opéra.</p>
-                <p><strong>Énigme :</strong> Si vous multipliez le nombre de **grandes sections distinctes de toiture** (voiles principales) par la **durée en années du dépassement** du délai de construction initial (prévu pour 4 ans), quel est le résultat ? (Indice pour le calcul: le chantier a duré de 1959 à 1973).</p>
-                <input type="text" id="input-opera" placeholder="Code à 4 chiffres (Ex: 0123)">
-                <button onclick="verifierEnigme('opera', 'input-opera', 'salle-animaux')">Entrer le code</button>
-                <div class="feedback" id="feedback-opera"></div>
-            </div>
-        </section>
+        <div id="visuel-salle" class="salle-visuelle active">
+            
+            <section id="salle-opera" class="salle active">
+                <h2>Salle 1 : L'Opéra de Sydney</h2>
+                <div class="contexte">
+                    <p>Vous êtes dans l'ancienne bibliothèque. Trouvez le code à 4 chiffres en analysant la construction emblématique.</p>
+                    <p><strong>Énigme :</strong> Si vous multipliez le nombre de **grandes sections distinctes de toiture** (14) par la **durée en années du dépassement** du délai de construction initial (10 ans), quel est le résultat ? (Code = 0140)</p>
+                    <input type="text" id="input-opera" placeholder="Code à 4 chiffres (Ex: 0140)">
+                    <button onclick="verifierEnigme('opera', 'input-opera', 'salle-animaux')">Entrer le code</button>
+                    <div class="feedback" id="feedback-opera"></div>
+                </div>
+            </section>
 
-        <section id="salle-animaux" class="salle cachee">
-            <h2>Salle 2 : Le Royaume des Animaux</h2>
-            <div class="contexte">
-                <p>Un mécanisme de protection pour la faune vous demande un mot de passe à 3 lettres. Il est basé sur un acronyme animal.</p>
-                <p><strong>Énigme :</strong> Combinez l'initiale de l'aliment principal du **Koala**, l'initiale de la nourriture favorite du **Kangourou**, puis l'initiale de la première description du **Wombat** par les explorateurs européens (Indice: pensez à son apparence au sol).</p>
-                <input type="text" id="input-animaux" placeholder="Mot-clé (3 lettres)">
-                <button onclick="verifierEnigme('animaux', 'input-animaux', 'salle-sport')">Déverrouiller</button>
-                <div class="feedback" id="feedback-animaux"></div>
-            </div>
-        </section>
+            <section id="salle-animaux" class="salle cachee">
+                <h2>Salle 2 : Le Royaume des Animaux</h2>
+                <div class="contexte">
+                    <p>Vous avez trouvé l'entrée du laboratoire de zoologie. Un mécanisme de protection pour la faune vous demande un mot de passe à 3 lettres.</p>
+                    <p><strong>Énigme :</strong> Combinez l'initiale de l'aliment principal du **Koala**, l'initiale de la nourriture favorite du **Kangourou**, puis l'initiale de la première description du **Wombat** par les explorateurs européens (Earth/Terre).</p>
+                    <input type="text" id="input-animaux" placeholder="Mot-clé (3 lettres: ETE)">
+                    <button onclick="verifierEnigme('animaux', 'input-animaux', 'salle-sport')">Déverrouiller</button>
+                    <div class="feedback" id="feedback-animaux"></div>
+                </div>
+            </section>
 
-        <section id="salle-sport" class="salle cachee">
-            <h2>Salle 3 : Le Sport et la Plage</h2>
-            <div class="contexte">
-                <p>La sortie finale nécessite une clé alphanumérique. Elle célèbre la fierté australienne aux Jeux Olympiques.</p>
-                <p><strong>Énigme :</strong> Quelle est l'initiale du sport le plus populaire en Australie (qui n'est pas le Rugby) combinée au **nombre de médailles d'or remportées par l'Australie aux Jeux Olympiques de Sydney en 2000** ?</p>
-                <input type="text" id="input-sport" placeholder="Clé (1 lettre + 2 chiffres)">
-                <button onclick="verifierEnigme('sport', 'input-sport', 'fin')">Solution Finale</button>
-                <div class="feedback" id="feedback-sport"></div>
-            </div>
-        </section>
+            <section id="salle-sport" class="salle cachee">
+                <h2>Salle 3 : Le Sport et la Plage</h2>
+                <div class="contexte">
+                    <p>Vous êtes dans le gymnase. La sortie finale nécessite une clé alphanumérique célébrant la fierté australienne aux JO.</p>
+                    <p><strong>Énigme :</strong> Quelle est l'initiale du sport le plus populaire en Australie (Australian Football) combinée au **nombre de médailles d'or remportées par l'Australie aux JO de Sydney en 2000** (16) ?</p>
+                    <input type="text" id="input-sport" placeholder="Clé (1 lettre + 2 chiffres: A16)">
+                    <button onclick="verifierEnigme('sport', 'input-sport', 'fin')">Solution Finale</button>
+                    <div class="feedback" id="feedback-sport"></div>
+                </div>
+            </section>
 
-        <section id="fin" class="salle cachee">
-            <h2>Félicitations ! Évasion Réussie ! 🏆</h2>
-            <p>Le mystère australien est résolu. Vous avez échappé aux couloirs d'Oxford et gagné votre liberté !</p>
-            <p><strong>Temps de jeu final :</strong> <span id="temps-final"></span></p>
-        </section>
-
+            <section id="fin" class="salle cachee">
+                <h2>Félicitations ! Évasion Réussie ! 🏆</h2>
+                <p>Le mystère australien est résolu. Vous avez échappé aux couloirs d'Oxford et gagné votre liberté !</p>
+                <p><strong>Temps de jeu final :</strong> <span id="temps-final"></span></p>
+            </section>
+        </div>
     </main>
 
     <script src="script.js"></script> 
