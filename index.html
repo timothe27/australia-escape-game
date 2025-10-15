@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Escape Game: Australia at Oxford</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>Australian Mystery: Escape from Oxford 🇦🇺🎓</h1>
+        <p>You are locked in a historic Oxford building. To escape, you must unlock a series of Australian-themed rooms by solving simple puzzles. Good luck!</p>
+        <div id="chrono">Time Remaining: 60:00</div>
+    </header>
+
+    <main id="jeu-container">
+        
+        <div id="visuel-salle" class="salle-visuelle active">
+            
+            <section id="salle-opera" class="salle active">
+                <h2>Room 1: The Sydney Opera House</h2>
+                <div class="contexte">
+                    <p>The door is secured by a 4-digit code related to the iconic shells of the building.</p>
+                    <p><strong>EASY PUZZLE:</strong> The Opera House roof is made of 14 major shell groups. The construction officially began in 1959. What is the **total number of digits** in the year 1959, **multiplied by the number of shell groups (14)**?</p>
+                    <input type="text" id="input-opera" placeholder="4-digit code (e.g., 0056)">
+                    <button onclick="verifierEnigme('opera', 'input-opera', 'salle-animaux')">Enter Code</button>
+                    <div class="feedback" id="feedback-opera"></div>
+                </div>
+            </section>
+
+            <section id="salle-animaux" class="salle cachee">
+                <h2>Room 2: The Animal Kingdom</h2>
+                <div class="contexte">
+                    <p>A 3-letter keyword is required here. It is based on the famous marsupials of Australia.</p>
+                    <p><strong>EASY PUZZLE:</strong> Find the first letter of the three most popular Australian marsupials: the **K**angaroo, the **O**possum, and the **W**allaby. Put them in alphabetical order.</p>
+                    <input type="text" id="input-animaux" placeholder="3-letter keyword (e.g., ABC)">
+                    <button onclick="verifierEnigme('animaux', 'input-animaux', 'salle-sport')">Unlock</button>
+                    <div class="feedback" id="feedback-animaux"></div>
+                </div>
+            </section>
+
+            <section id="salle-sport" class="salle cachee">
+                <h2>Room 3: Sport and the Beach</h2>
+                <div class="contexte">
+                    <p>The final exit needs an alphanumeric key that celebrates Australian Olympic success.</p>
+                    <p><strong>EASY PUZZLE:</strong> What is the first letter of the world-famous Sydney beach, **B**ondi, followed by the **number of colours** on the Australian flag?</p>
+                    <input type="text" id="input-sport" placeholder="Key (1 letter + 1 digit)">
+                    <button onclick="verifierEnigme('sport', 'input-sport', 'fin')">Final Solution</button>
+                    <div class="feedback" id="feedback-sport"></div>
+                </div>
+            </section>
+
+            <section id="fin" class="salle cachee">
+                <h2>Congratulations! Escape Successful! 🏆</h2>
+                <p>The Australian mystery is solved. You have escaped the corridors of Oxford and earned your freedom!</p>
+                <p><strong>Final Time:</strong> <span id="temps-final"></span></p>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script> 
+</body>
+</html>
