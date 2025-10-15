@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e6f7ff; 
+    background-color: #e6f7ff; /* Bleu clair */
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -9,11 +9,16 @@ body {
 }
 
 header {
-    background-color: #004b87; 
+    background-color: #004b87; /* Bleu australien profond */
     color: white;
     padding: 25px;
-    border-bottom: 7px solid #ffcd00; 
+    border-bottom: 7px solid #ffcd00; /* Jaune doré australien */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
 }
 
 #chrono {
@@ -25,50 +30,71 @@ header {
 
 /* 1. CONTENEUR PRINCIPAL DU JEU */
 #jeu-container {
-    max-width: 1200px; /* On élargit pour un meilleur visuel */
-    height: 70vh; /* Hauteur relative pour voir le fond */
+    max-width: 1200px; 
+    height: 70vh; 
     margin: 30px auto;
     padding: 0;
-    background-color: transparent; /* Le fond sera géré par .salle-visuelle */
+    background-color: transparent; 
     box-shadow: none;
     border-radius: 10px;
     position: relative;
 }
 
-/* 2. GESTION DE L'IMAGE DE FOND (LA SALLE) */
+/* 2. GESTION DU FOND THÉMATIQUE (SIMULATION DES SALLES SANS IMAGES) */
 #visuel-salle {
     width: 100%;
     height: 100%;
-    /* Image par défaut : un couloir ou une pièce classique d'Oxford */
-    background-image: url('images/couloir_oxford.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
     border-radius: 10px;
+    transition: background-image 1s ease-in-out; /* Ajoute une transition douce entre les fonds */
 }
+
+/* ---------------------------------------------------- */
+/* --- COULEURS THÉMATIQUES SIMULANT LES IMAGES --- */
+/* ---------------------------------------------------- */
+
+/* Fond initial : Ambiance Oxford/Bibliothèque (Salle 1) */
+#visuel-salle[style*="couloir_oxford"] {
+    background: linear-gradient(135deg, #c3a17d, #a5846b); /* Couleurs de bois et de pierre d'Oxford */
+    border: 5px solid #5a4b41;
+}
+
+/* Fond Salle 2 : Animaux / Faune (Simulation Forêt/Outback) */
+#visuel-salle[style*="salle_animaux"] {
+    background: linear-gradient(to bottom right, #38761d, #6aa84f); /* Vert Forêt / Feuilles d'Eucalyptus */
+    border: 5px solid #274e13;
+}
+
+/* Fond Salle 3 : Sport / Plage (Simulation Plage/Soleil) */
+#visuel-salle[style*="salle_sport"] {
+    background: linear-gradient(to top left, #ffcd00, #ff8c00); /* Jaune et Orange du Soleil et du Sable */
+    border: 5px solid #e6b800;
+}
+
+/* ---------------------------------------------------- */
 
 /* 3. STYLISATION DES FENÊTRES D'ÉNIGMES */
 .salle {
     /* Rendre les boîtes d'énigmes semi-transparentes */
-    background-color: rgba(255, 255, 255, 0.9); /* Blanc semi-transparent */
+    background-color: rgba(255, 255, 255, 0.9); 
     border: 3px solid #004b87;
     padding: 25px;
     margin: 20px;
     border-radius: 10px;
     text-align: left;
-    max-width: 450px; /* Taille de la boîte de texte */
-    position: absolute; /* Permet le positionnement libre sur le fond */
+    max-width: 450px; 
+    position: absolute; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centre la boîte */
+    transform: translate(-50%, -50%); 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .cachee {
     display: none; 
 }
-
-/* ... (Les styles pour h2, input, button, feedback restent les mêmes) ... */
 
 .salle h2 {
     color: #004b87;
@@ -115,7 +141,6 @@ button:hover {
 }
 
 #fin {
-    /* Style spécial pour l'écran de fin */
     background-color: rgba(204, 238, 255, 0.95);
     border-color: #004b87;
     color: #004b87;
